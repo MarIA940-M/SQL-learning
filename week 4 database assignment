@@ -1,0 +1,41 @@
+# Week 4 Database Assignment: Advanced SQL Queries and Aggregations
+
+## Question 1: Total Payment Amount by Payment Date
+
+```sql
+SELECT paymentDate,
+       SUM(amount) AS total_amount
+FROM payments
+GROUP BY paymentDate
+ORDER BY paymentDate DESC
+LIMIT 5;
+```
+
+## Question 2: Average Credit Limit by Customer
+
+```sql
+SELECT customerName,
+       country,
+       AVG(creditLimit) AS average_credit_limit
+FROM customers
+GROUP BY customerName, country;
+```
+
+## Question 3: Total Price of Products Ordered
+
+```sql
+SELECT productCode,
+       quantityOrdered,
+       SUM(quantityOrdered * priceEach) AS total_price
+FROM orderdetails
+GROUP BY productCode, quantityOrdered;
+```
+
+## Question 4: Highest Payment Amount by Check Number
+
+```sql
+SELECT checkNumber,
+       MAX(amount) AS highest_amount
+FROM payments
+GROUP BY checkNumber;
+```
